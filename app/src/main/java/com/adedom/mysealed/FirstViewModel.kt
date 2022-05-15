@@ -10,7 +10,7 @@ class FirstViewModel : ViewModel() {
     private val _uiAction = MutableSharedFlow<FirstUiAction>()
     private val uiAction: SharedFlow<FirstUiAction> = _uiAction.asSharedFlow()
 
-    private val _uiState = MutableStateFlow<FirstUiState>(FirstUiState.Initial)
+    private val _uiState = MutableStateFlow<FirstUiState>(FirstUiState.Initial())
     val uiState: StateFlow<FirstUiState> = _uiState.asStateFlow()
 
     init {

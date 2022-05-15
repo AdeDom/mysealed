@@ -44,10 +44,10 @@ class FirstFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { uiState ->
                     when (uiState) {
-                        FirstUiState.Initial -> {
-                            binding.tvA.text = "Initial A"
-                            binding.tvB.text = "Initial B"
-                            binding.tvC.text = "Initial C"
+                        is FirstUiState.Initial -> {
+                            binding.tvA.text = uiState.textA
+                            binding.tvB.text = uiState.textB
+                            binding.tvC.text = uiState.textC
                         }
                         is FirstUiState.ButtonAClicked -> {
                             binding.tvA.isVisible = uiState.textAShow

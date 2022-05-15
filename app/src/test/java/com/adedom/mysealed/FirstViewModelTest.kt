@@ -32,4 +32,33 @@ class FirstViewModelTest {
 
         assertThat(result).isEqualTo(8)
     }
+
+    @Test
+    fun firstUiStateInitial() {
+        val result = viewModel.uiState.value as FirstUiState.Initial
+        assertThat(result.textA).isEqualTo("Initial A")
+        assertThat(result.textB).isEqualTo("Initial B")
+        assertThat(result.textC).isEqualTo("Initial C")
+    }
+
+    @Test
+    fun setButtonAAction_FirstUiStateButtonAClicked() {
+        viewModel.setButtonAAction()
+
+        val result = viewModel.uiState.value as FirstUiState.ButtonAClicked
+        assertThat(result.textAShow).isTrue()
+        assertThat(result.text).isEqualTo("Hello, A")
+    }
+
+    @Test
+    fun setButtonBAction_FirstUiStateButtonBClicked() {
+        val now = 123456L
+
+        viewModel.setButtonBAction(now)
+
+        val result = viewModel.uiState.value as FirstUiState.ButtonBClicked
+        assertThat(result.textAShow).isFalse()
+        assertThat(result.text).isEqualTo("Hello, B")
+        assertThat(result.now).isEqualTo("123456")
+    }
 }
