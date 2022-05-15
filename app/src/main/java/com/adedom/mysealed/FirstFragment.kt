@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -44,6 +45,20 @@ class FirstFragment : Fragment() {
                 viewModel.uiState.collect { uiState ->
                     when (uiState) {
                         FirstUiState.Initial -> {
+                            binding.tvA.text = "Initial A"
+                            binding.tvB.text = "Initial B"
+                            binding.tvC.text = "Initial C"
+                        }
+                        is FirstUiState.ButtonAClicked -> {
+                            binding.tvA.isVisible = uiState.textAShow
+                            binding.tvA.text = uiState.text
+                            binding.tvB.text = "-"
+                            binding.tvC.text = "-"
+                        }
+                        is FirstUiState.ButtonBClicked -> {
+                            binding.tvA.isVisible = uiState.textAShow
+                            binding.tvB.text = uiState.text
+                            binding.tvC.text = uiState.now
                         }
                     }
                 }

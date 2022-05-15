@@ -18,8 +18,21 @@ class FirstViewModel : ViewModel() {
             .onEach { uiAction ->
                 when (uiAction) {
                     FirstUiAction.ButtonA -> {
+                        _uiState.update {
+                            FirstUiState.ButtonAClicked(
+                                textAShow = true,
+                                text = "Hello, A",
+                            )
+                        }
                     }
                     is FirstUiAction.ButtonB -> {
+                        _uiState.update {
+                            FirstUiState.ButtonBClicked(
+                                textAShow = false,
+                                text = "Hello, B",
+                                now = uiAction.now.toString()
+                            )
+                        }
                     }
                 }
             }
