@@ -8,7 +8,9 @@ sealed interface FirstUiState {
     ) : FirstUiState
     data class ButtonAClicked(
         val textAShow: Boolean,
-        val text: String,
+        val textA: String,
+        val textB: String = "-",
+        val textC: String = "-",
     ) : FirstUiState
 
     data class ButtonBClicked(

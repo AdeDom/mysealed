@@ -21,7 +21,7 @@ class FirstViewModel : ViewModel() {
                         _uiState.update {
                             FirstUiState.ButtonAClicked(
                                 textAShow = true,
-                                text = "Hello, A",
+                                textA = "Hello, A",
                             )
                         }
                     }

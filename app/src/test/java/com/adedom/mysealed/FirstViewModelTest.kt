@@ -38,7 +38,9 @@ class FirstViewModelTest {
 
         val result = viewModel.uiState.value as FirstUiState.ButtonAClicked
         assertThat(result.textAShow).isTrue()
-        assertThat(result.text).isEqualTo("Hello, A")
+        assertThat(result.textA).isEqualTo("Hello, A")
+        assertThat(result.textB).isEqualTo("-")
+        assertThat(result.textC).isEqualTo("-")
     }
 
     @Test

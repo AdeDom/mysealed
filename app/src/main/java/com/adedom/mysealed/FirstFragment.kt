@@ -51,9 +51,9 @@ class FirstFragment : Fragment() {
                         }
                         is FirstUiState.ButtonAClicked -> {
                             binding.tvA.isVisible = uiState.textAShow
-                            binding.tvA.text = uiState.text
-                            binding.tvB.text = "-"
-                            binding.tvC.text = "-"
+                            binding.tvA.text = uiState.textA
+                            binding.tvB.text = uiState.textB
+                            binding.tvC.text = uiState.textC
                         }
                         is FirstUiState.ButtonBClicked -> {
                             binding.tvA.isVisible = uiState.textAShow
