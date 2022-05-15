@@ -25,15 +25,6 @@ class FirstViewModelTest {
     }
 
     @Test
-    fun test() {
-        val a = 5
-
-        val result = viewModel.sum3(a)
-
-        assertThat(result).isEqualTo(8)
-    }
-
-    @Test
     fun firstUiStateInitial() {
         val result = viewModel.uiState.value as FirstUiState.Initial
         assertThat(result.textA).isEqualTo("Initial A")

@@ -52,8 +52,4 @@ class FirstViewModel : ViewModel() {
             _uiAction.emit(action)
         }
     }
-
-    fun sum3(a: Int): Int {
-        return a + 3
-    }
 }
